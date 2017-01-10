@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="triangle" class="com.infosys.Triangle">
+		<!-- <property name="type" value="equilateral"></property> -->
+		<!-- <constructor-arg value="equilateral"></constructor-arg> <constructor-arg 
+			value="10"></constructor-arg> -->
+		<!-- <constructor-arg type="java.lang.String" value="equilateral"></constructor-arg> 
+			<constructor-arg type="int" value="10"></constructor-arg> -->
+		<!-- <constructor-arg index="0" value="equilateral"></constructor-arg> 
+			<constructor-arg index="1" value="10"></constructor-arg> -->
+		<property name="pointA">
+			<idref bean="point1"/>
+		</property>
+		<property name="pointB">
+			<bean class="com.infosys.Point">
+				<property name="x" value="1" />
+				<property name="y" value="2" />
+			</bean>
+		</property>
+		<property name="pointC" ref="point3" />
+	</bean>
+
+	<alias name="triangle" alias="triangle-alias" />
+
+	<bean id="point1" class="com.infosys.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	<!-- <bean id="pointB" class="com.infosys.Point"> <property name="x" value="1" 
+		/> <property name="y" value="2" /> </bean> -->
+	<bean id="point3" class="com.infosys.Point">
+		<property name="x" value="3" />
+		<property name="y" value="4" />
+	</bean>
+</beans>
